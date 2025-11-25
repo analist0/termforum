@@ -99,9 +99,9 @@ class HomeScreen(Screen):
             id="stats-container"
         )
 
-        # Main content area
+        # Main content area with empty ListView (will populate in on_mount)
         yield Container(
-            self._build_thread_list(),
+            ListView(id="thread-list"),
             id="main-container"
         )
 
@@ -112,9 +112,13 @@ class HomeScreen(Screen):
             id="footer-info"
         )
 
-    def _build_thread_list(self) -> ListView:
-        """Build the thread list widget"""
-        thread_list = ListView(id="thread-list")
+    def on_mount(self) -> None:
+        """Called after screen is mounted - populate thread list"""
+        self._populate_thread_list()
+
+    def _populate_thread_list(self) -> None:
+        """Populate the thread list with data"""
+        thread_list = self.query_one("#thread-list", ListView)
 
         # Get threads from database
         threads = self.database.list_threads(limit=50)
@@ -125,8 +129,6 @@ class HomeScreen(Screen):
         else:
             for thread in threads:
                 thread_list.append(ThreadListItem(thread))
-
-        return thread_list
 
     def on_list_view_selected(self, event: ListView.Selected) -> None:
         """Handle thread selection"""
