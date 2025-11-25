@@ -1,0 +1,88 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "termforum"
+version = "0.1.0"
+description = "A beautiful TUI forum application for the terminal"
+authors = [
+    {name = "Yossi", email = "analist0@github.com"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+keywords = ["terminal", "tui", "forum", "textual", "markdown"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Communications :: Chat",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Message Boards",
+]
+
+dependencies = [
+    # TUI Framework
+    "textual>=0.50.0",
+    "rich>=13.7.0",
+
+    # Terminal Graphics & Effects
+    "asciimatics>=1.14.0",      # Advanced terminal animations
+    "art>=6.1",                  # ASCII art library
+    "pyfiglet>=1.0.2",          # ASCII banners
+    "termcolor>=2.3.0",         # Terminal colors
+    "colorama>=0.4.6",          # Cross-platform colors
+    "blessed>=1.20.0",          # Terminal styling
+    "prompt-toolkit>=3.0.43",   # Advanced input
+
+    # Content Processing
+    "markdown>=3.5.0",
+    "python-slugify>=8.0.0",
+    "Pillow>=10.1.0",           # Image processing for ASCII conversion
+
+    # CLI
+    "click>=8.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.7.0",
+]
+
+[project.scripts]
+termforum = "termforum.main:main"
+
+[project.urls]
+Homepage = "https://github.com/analist0/termforum"
+Documentation = "https://github.com/analist0/termforum/blob/main/README.md"
+Repository = "https://github.com/analist0/termforum"
+Issues = "https://github.com/analist0/termforum/issues"
+
+[tool.setuptools]
+packages = ["termforum"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
