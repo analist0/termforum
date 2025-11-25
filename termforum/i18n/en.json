@@ -170,6 +170,39 @@
     "page_down": "Page down"
   },
 
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "username": "Username",
+    "password": "Password",
+    "email": "Email",
+    "confirm_password": "Confirm Password",
+    "remember_me": "Remember Me",
+    "forgot_password": "Forgot Password?",
+    "no_account_hint": "Press 'Register' to create a new account",
+    "have_account_hint": "Already have an account? Press 'Login'",
+    "username_placeholder": "Enter your username",
+    "password_placeholder": "Enter your password",
+    "email_placeholder": "user@example.com (optional)",
+    "confirm_password_placeholder": "Re-enter password",
+    "password_strength": "Password Strength",
+    "error": {
+      "empty_fields": "Username and password are required",
+      "user_not_found": "User not found. Please register first.",
+      "no_password": "This user account has no password set",
+      "wrong_password": "Incorrect password",
+      "username_too_short": "Username must be at least 3 characters",
+      "password_mismatch": "Passwords do not match",
+      "password_too_weak": "Password is too weak. Use letters, numbers & symbols.",
+      "username_exists": "Username already exists",
+      "registration_failed": "Registration failed"
+    },
+    "success": {
+      "registered": "Account created successfully! Logging you in..."
+    }
+  },
+
   "messages": {
     "welcome": "Welcome to TermForum!",
     "thread_created": "Thread created successfully",
@@ -179,8 +212,9 @@
     "post_deleted": "Post deleted",
     "bookmark_added": "Bookmark added",
     "bookmark_removed": "Bookmark removed",
-    "coming_soon": "Coming soon!",
-    "feature_not_available": "This feature is not available yet"
+    "coming_soon": "Coming soon: {feature}",
+    "feature_not_available": "This feature is not available yet",
+    "help_text": "Press '?' for help, 'q' to quit"
   },
 
   "errors": {

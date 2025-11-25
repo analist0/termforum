@@ -12,6 +12,7 @@ class User:
     id: int
     username: str
     email: Optional[str] = None
+    password_hash: Optional[str] = None  # PolyCrypt hash
     bio: Optional[str] = None
     avatar: str = "👤"
     created_at: datetime = None
@@ -22,6 +23,9 @@ class User:
     is_admin: bool = False
     is_banned: bool = False
     last_seen: datetime = None
+    # Security fields
+    failed_login_attempts: int = 0
+    account_locked_until: Optional[datetime] = None
 
     def __post_init__(self):
         """Set default timestamps"""
@@ -48,6 +52,7 @@ class User:
             "id": self.id,
             "username": self.username,
             "email": self.email,
+            "password_hash": self.password_hash,
             "bio": self.bio,
             "avatar": self.avatar,
             "created_at": self.created_at.isoformat() if self.created_at else None,
@@ -58,6 +63,8 @@ class User:
             "is_admin": self.is_admin,
             "is_banned": self.is_banned,
             "last_seen": self.last_seen.isoformat() if self.last_seen else None,
+            "failed_login_attempts": self.failed_login_attempts,
+            "account_locked_until": self.account_locked_until.isoformat() if self.account_locked_until else None,
         }
 
     @classmethod
@@ -69,6 +76,8 @@ class User:
             data["updated_at"] = datetime.fromisoformat(data["updated_at"])
         if "last_seen" in data and isinstance(data["last_seen"], str):
             data["last_seen"] = datetime.fromisoformat(data["last_seen"])
+        if "account_locked_until" in data and isinstance(data["account_locked_until"], str):
+            data["account_locked_until"] = datetime.fromisoformat(data["account_locked_until"])
         return cls(**data)
 
     def __str__(self) -> str:

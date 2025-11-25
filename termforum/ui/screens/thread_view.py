@@ -7,6 +7,7 @@ from textual.containers import Container, Vertical, Horizontal, ScrollableContai
 from textual.binding import Binding
 from ...storage import Database
 from ...models import User, Thread, Post
+from ...i18n import get_translator
 
 
 class PostItem(ListItem):
@@ -19,12 +20,14 @@ class PostItem(ListItem):
 
     def compose(self) -> ComposeResult:
         """Compose post item"""
+        t = get_translator().t
+
         # Indentation for nested replies
         indent = "  " * self.depth
 
         # Author info
         author_info = f"{indent}{self.post.user_avatar} {self.post.user_name}"
-        time_info = "now"  # TODO: Format time ago
+        time_info = t('time.now')  # TODO: Format time ago
 
         # Score
         score = self.post.score
@@ -40,9 +43,13 @@ class PostItem(ListItem):
         yield Markdown(content, classes="post-content")
 
         # Actions
-        actions = f"{indent}[R] Reply  [U] Upvote  [D] Downvote"
+        actions = (
+            f"{indent}[R] {t('post.reply')}  "
+            f"[U] {t('post.upvote')}  "
+            f"[D] {t('post.downvote')}"
+        )
         if self.post.is_edited:
-            actions += "  [Edited]"
+            actions += f"  [{t('post.edited')}]"
         yield Label(actions, classes="post-actions")
 
 
@@ -152,7 +159,14 @@ class ThreadViewScreen(Screen):
         )
 
         # Footer actions
-        footer_text = "[R] Reply  [U] Upvote  [D] Downvote  [J/K] Scroll  [Esc] Back"
+        t = get_translator().t
+        footer_text = (
+            f"[R] {t('post.reply')}  "
+            f"[U] {t('post.upvote')}  "
+            f"[D] {t('post.downvote')}  "
+            f"[J/K] {t('keyboard.scroll_up')}/{t('keyboard.scroll_down')}  "
+            f"[Esc] {t('common.back')}"
+        )
         yield Container(
             Label(footer_text),
             id="footer-actions"
@@ -164,13 +178,14 @@ class ThreadViewScreen(Screen):
 
     def _populate_posts_list(self) -> None:
         """Populate the posts list with nested replies"""
+        t = get_translator().t
         posts_list = self.query_one("#posts-list", ListView)
 
         # Get all posts
         self.posts = self.database.list_posts(self.thread.id, limit=1000)
 
         if not self.posts:
-            posts_list.append(ListItem(Label("No replies yet. Be the first to reply!")))
+            posts_list.append(ListItem(Label(t('thread.no_replies'))))
         else:
             # Build tree structure
             posts_by_parent = {}

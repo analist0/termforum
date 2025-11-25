@@ -7,6 +7,7 @@ from textual.containers import Container
 from textual.binding import Binding
 from ...storage import Database
 from ...models import User, Category
+from ...i18n import get_translator
 
 
 class CategoryItem(ListItem):
@@ -84,10 +85,11 @@ class CategoriesScreen(Screen):
 
     def compose(self) -> ComposeResult:
         """Compose the categories screen"""
+        t = get_translator().t
 
         # Header
         yield Container(
-            Label("📁 Forum Categories", classes="header-title"),
+            Label(f"📁 {t('categories.title')}", classes="header-title"),
             id="header"
         )
 
@@ -95,7 +97,11 @@ class CategoriesScreen(Screen):
         yield self._build_categories_list()
 
         # Footer
-        footer_text = "[Enter] Open  [J/K] Navigate  [Esc] Back"
+        footer_text = (
+            f"[Enter] {t('thread.view_thread')}  "
+            f"[J/K] {t('keyboard.navigate_down')}/{t('keyboard.navigate_up')}  "
+            f"[Esc] {t('common.back')}"
+        )
         yield Container(
             Label(footer_text),
             id="footer"
@@ -116,8 +122,9 @@ class CategoriesScreen(Screen):
     def on_list_view_selected(self, event: ListView.Selected) -> None:
         """Handle category selection"""
         if isinstance(event.item, CategoryItem):
+            t = get_translator().t
             category = event.item.category
-            self.app.notify(f"Opening category: {category.name}")
+            self.app.notify(f"{t('categories.browse')}: {category.name}")
             # TODO: Navigate to category threads view
 
     def action_move_down(self) -> None:

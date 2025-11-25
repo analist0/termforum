@@ -6,6 +6,8 @@ from textual.widgets import Header, Footer
 from .storage import Database
 from .models import User
 from .ui.screens import HomeScreen
+from .i18n import get_translator
+from .config import get_config
 
 
 class TermForumApp(App):
@@ -26,6 +28,25 @@ class TermForumApp(App):
     }
     """
 
+    def __init__(self, database: Database, current_user: User):
+        super().__init__()
+        self.database = database
+        self.current_user = current_user
+
+        # Initialize i18n and config
+        self.translator = get_translator()
+        self.config = get_config()
+        t = self.translator.t
+
+        # Set language from config if specified
+        config_lang = self.config.get_language()
+        if config_lang:
+            self.translator.set_language(config_lang)
+
+        # Set title and subtitle with translations
+        self.title = f"{t('app.name')} {t('app.version')} - {current_user.display_name}"
+        self.sub_title = t('app.subtitle')
+
     BINDINGS = [
         Binding("q", "quit", "Quit", priority=True),
         Binding("?", "help", "Help"),
@@ -36,13 +57,6 @@ class TermForumApp(App):
         Binding("5", "goto_settings", "Settings"),
         Binding("n", "new_thread", "New Thread"),
     ]
-
-    def __init__(self, database: Database, current_user: User):
-        super().__init__()
-        self.database = database
-        self.current_user = current_user
-        self.title = f"TermForum v0.1.0 - {current_user.display_name}"
-        self.sub_title = "Terminal Forum Application"
 
     def compose(self) -> ComposeResult:
         """Compose the UI"""
@@ -60,7 +74,8 @@ class TermForumApp(App):
 
     def action_help(self) -> None:
         """Show help"""
-        self.notify("Help: j/k=navigate, Enter=select, n=new thread, q=quit")
+        t = self.translator.t
+        self.notify(t('messages.help_text'))
 
     def action_goto_home(self) -> None:
         """Go to home screen"""
@@ -73,16 +88,20 @@ class TermForumApp(App):
 
     def action_goto_search(self) -> None:
         """Go to search screen"""
-        self.notify("Search screen - Coming soon!")
+        t = self.translator.t
+        self.notify(t('messages.coming_soon', feature=t('navigation.search')))
 
     def action_goto_profile(self) -> None:
         """Go to profile screen"""
-        self.notify(f"Profile: {self.current_user.username}")
+        t = self.translator.t
+        self.notify(f"{t('user.profile')}: {self.current_user.username}")
 
     def action_goto_settings(self) -> None:
         """Go to settings screen"""
-        self.notify("Settings screen - Coming soon!")
+        from .ui.screens.settings import SettingsScreen
+        self.push_screen(SettingsScreen(self.database, self.current_user))
 
     def action_new_thread(self) -> None:
         """Create new thread"""
-        self.notify("New thread editor - Coming soon!")
+        t = self.translator.t
+        self.notify(t('messages.coming_soon', feature=t('navigation.new_thread')))
