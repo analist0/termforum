@@ -145,9 +145,9 @@ class ThreadViewScreen(Screen):
             id="thread-content"
         )
 
-        # Posts list
+        # Posts list (empty, will populate in on_mount)
         yield Container(
-            self._build_posts_list(),
+            ListView(id="posts-list"),
             id="posts-container"
         )
 
@@ -158,9 +158,13 @@ class ThreadViewScreen(Screen):
             id="footer-actions"
         )
 
-    def _build_posts_list(self) -> ListView:
-        """Build the posts list with nested replies"""
-        posts_list = ListView()
+    def on_mount(self) -> None:
+        """Called after screen is mounted - populate posts list"""
+        self._populate_posts_list()
+
+    def _populate_posts_list(self) -> None:
+        """Populate the posts list with nested replies"""
+        posts_list = self.query_one("#posts-list", ListView)
 
         # Get all posts
         self.posts = self.database.list_posts(self.thread.id, limit=1000)
@@ -186,8 +190,6 @@ class ThreadViewScreen(Screen):
 
             # Start with root posts (parent_post_id is None)
             render_post_tree(None, 0)
-
-        return posts_list
 
     def action_scroll_down(self) -> None:
         """Scroll down"""
