@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "name": "English",
+    "code": "en",
+    "direction": "ltr"
+  },
+
+  "app": {
+    "name": "TermForum",
+    "subtitle": "Terminal Forum Application",
+    "version": "v0.1.0"
+  },
+
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "back": "Back",
+    "quit": "Quit",
+    "help": "Help",
+    "search": "Search",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "categories": "Categories",
+    "search": "Search",
+    "profile": "Profile",
+    "settings": "Settings",
+    "new_thread": "New Thread"
+  },
+
+  "home": {
+    "title": "Forum Home",
+    "welcome": "Welcome to TermForum!",
+    "recent_threads": "Recent Threads",
+    "no_threads": "No threads yet. Press 'n' to create the first one!",
+    "stats": {
+      "users": "Users",
+      "threads": "Threads",
+      "posts": "Posts",
+      "categories": "Categories"
+    }
+  },
+
+  "categories": {
+    "title": "Forum Categories",
+    "browse": "Browse Categories",
+    "no_categories": "No categories available",
+    "select_prompt": "Select a category to view threads"
+  },
+
+  "thread": {
+    "title": "Thread",
+    "view_thread": "View Thread",
+    "new_thread": "New Thread",
+    "edit_thread": "Edit Thread",
+    "delete_thread": "Delete Thread",
+    "locked": "Locked",
+    "pinned": "Pinned",
+    "replies": "replies",
+    "views": "views",
+    "posts": "posts",
+    "no_replies": "No replies yet. Be the first to reply!",
+    "score": "Score"
+  },
+
+  "post": {
+    "reply": "Reply",
+    "edit": "Edit",
+    "delete": "Delete",
+    "upvote": "Upvote",
+    "downvote": "Downvote",
+    "bookmark": "Bookmark",
+    "report": "Report",
+    "edited": "Edited",
+    "deleted": "Deleted",
+    "by": "by"
+  },
+
+  "user": {
+    "profile": "Profile",
+    "username": "Username",
+    "email": "Email",
+    "bio": "Bio",
+    "avatar": "Avatar",
+    "reputation": "Reputation",
+    "posts_count": "Posts",
+    "threads_count": "Threads",
+    "joined": "Joined",
+    "last_active": "Last Active",
+    "admin": "Admin",
+    "moderator": "Moderator"
+  },
+
+  "editor": {
+    "title": "Editor",
+    "thread_title": "Thread Title",
+    "content": "Content",
+    "preview": "Preview",
+    "markdown_help": "Markdown Help",
+    "save_draft": "Save Draft",
+    "publish": "Publish",
+    "discard": "Discard Changes"
+  },
+
+  "search": {
+    "title": "Search",
+    "placeholder": "Search threads and posts...",
+    "results": "Results",
+    "no_results": "No results found",
+    "searching": "Searching...",
+    "filters": {
+      "all": "All",
+      "threads": "Threads",
+      "posts": "Posts",
+      "users": "Users"
+    }
+  },
+
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "theme": "Theme",
+    "notifications": "Notifications",
+    "privacy": "Privacy",
+    "account": "Account",
+    "about": "About",
+    "themes": {
+      "dark": "Dark",
+      "light": "Light",
+      "kali": "Kali",
+      "matrix": "Matrix",
+      "cyberpunk": "Cyberpunk"
+    },
+    "language_select": "Select Language",
+    "language_changed": "Language changed successfully"
+  },
+
+  "ai": {
+    "title": "AI Assistant",
+    "commands": {
+      "help": "AI Commands Help",
+      "summarize": "Summarize Thread",
+      "translate": "Translate",
+      "ascii": "Generate ASCII Art"
+    },
+    "prompts": {
+      "mention": "Mention @ai for help",
+      "processing": "AI is thinking...",
+      "error": "AI error occurred"
+    }
+  },
+
+  "keyboard": {
+    "navigate_down": "Move down",
+    "navigate_up": "Move up",
+    "select": "Select",
+    "back": "Go back",
+    "scroll_up": "Scroll up",
+    "scroll_down": "Scroll down",
+    "page_up": "Page up",
+    "page_down": "Page down"
+  },
+
+  "messages": {
+    "welcome": "Welcome to TermForum!",
+    "thread_created": "Thread created successfully",
+    "thread_deleted": "Thread deleted",
+    "post_created": "Reply posted",
+    "post_edited": "Post edited",
+    "post_deleted": "Post deleted",
+    "bookmark_added": "Bookmark added",
+    "bookmark_removed": "Bookmark removed",
+    "coming_soon": "Coming soon!",
+    "feature_not_available": "This feature is not available yet"
+  },
+
+  "errors": {
+    "generic": "An error occurred",
+    "not_found": "Not found",
+    "permission_denied": "Permission denied",
+    "network_error": "Network error",
+    "database_error": "Database error",
+    "invalid_input": "Invalid input",
+    "required_field": "This field is required"
+  },
+
+  "time": {
+    "now": "now",
+    "seconds_ago": "{count} seconds ago",
+    "minutes_ago": "{count} minutes ago",
+    "hours_ago": "{count} hours ago",
+    "days_ago": "{count} days ago",
+    "weeks_ago": "{count} weeks ago",
+    "months_ago": "{count} months ago",
+    "years_ago": "{count} years ago"
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "meta": {
+    "name": "עברית",
+    "code": "he",
+    "direction": "rtl"
+  },
+
+  "app": {
+    "name": "טרמפורום",
+    "subtitle": "פורום טרמינל",
+    "version": "גרסה 0.1.0"
+  },
+
+  "common": {
+    "loading": "טוען...",
+    "error": "שגיאה",
+    "success": "הצלחה",
+    "cancel": "ביטול",
+    "save": "שמירה",
+    "delete": "מחיקה",
+    "edit": "עריכה",
+    "back": "חזרה",
+    "quit": "יציאה",
+    "help": "עזרה",
+    "search": "חיפוש",
+    "yes": "כן",
+    "no": "לא",
+    "ok": "אישור"
+  },
+
+  "navigation": {
+    "home": "בית",
+    "categories": "קטגוריות",
+    "search": "חיפוש",
+    "profile": "פרופיל",
+    "settings": "הגדרות",
+    "new_thread": "נושא חדש"
+  },
+
+  "home": {
+    "title": "דף הבית",
+    "welcome": "ברוכים הבאים לטרמפורום!",
+    "recent_threads": "נושאים אחרונים",
+    "no_threads": "אין נושאים עדיין. לחץ 'n' ליצירת הנושא הראשון!",
+    "stats": {
+      "users": "משתמשים",
+      "threads": "נושאים",
+      "posts": "תגובות",
+      "categories": "קטגוריות"
+    }
+  },
+
+  "categories": {
+    "title": "קטגוריות הפורום",
+    "browse": "עיון בקטגוריות",
+    "no_categories": "אין קטגוריות זמינות",
+    "select_prompt": "בחר קטגוריה לצפייה בנושאים"
+  },
+
+  "thread": {
+    "title": "נושא",
+    "view_thread": "צפייה בנושא",
+    "new_thread": "נושא חדש",
+    "edit_thread": "עריכת נושא",
+    "delete_thread": "מחיקת נושא",
+    "locked": "נעול",
+    "pinned": "מוצמד",
+    "replies": "תגובות",
+    "views": "צפיות",
+    "posts": "תגובות",
+    "no_replies": "אין תגובות עדיין. היה הראשון להגיב!",
+    "score": "ניקוד"
+  },
+
+  "post": {
+    "reply": "תגובה",
+    "edit": "עריכה",
+    "delete": "מחיקה",
+    "upvote": "הצבעה חיובית",
+    "downvote": "הצבעה שלילית",
+    "bookmark": "סימניה",
+    "report": "דיווח",
+    "edited": "נערך",
+    "deleted": "נמחק",
+    "by": "על ידי"
+  },
+
+  "user": {
+    "profile": "פרופיל",
+    "username": "שם משתמש",
+    "email": "דוא\"ל",
+    "bio": "אודות",
+    "avatar": "תמונת פרופיל",
+    "reputation": "מוניטין",
+    "posts_count": "תגובות",
+    "threads_count": "נושאים",
+    "joined": "הצטרף",
+    "last_active": "פעיל לאחרונה",
+    "admin": "מנהל",
+    "moderator": "מפקח"
+  },
+
+  "editor": {
+    "title": "עורך",
+    "thread_title": "כותרת הנושא",
+    "content": "תוכן",
+    "preview": "תצוגה מקדימה",
+    "markdown_help": "עזרה ב-Markdown",
+    "save_draft": "שמירת טיוטה",
+    "publish": "פרסום",
+    "discard": "ביטול שינויים"
+  },
+
+  "search": {
+    "title": "חיפוש",
+    "placeholder": "חיפוש נושאים ותגובות...",
+    "results": "תוצאות",
+    "no_results": "לא נמצאו תוצאות",
+    "searching": "מחפש...",
+    "filters": {
+      "all": "הכל",
+      "threads": "נושאים",
+      "posts": "תגובות",
+      "users": "משתמשים"
+    }
+  },
+
+  "settings": {
+    "title": "הגדרות",
+    "language": "שפה",
+    "theme": "ערכת נושא",
+    "notifications": "התראות",
+    "privacy": "פרטיות",
+    "account": "חשבון",
+    "about": "אודות",
+    "themes": {
+      "dark": "כהה",
+      "light": "בהיר",
+      "kali": "קאלי",
+      "matrix": "מטריקס",
+      "cyberpunk": "סייברפאנק"
+    },
+    "language_select": "בחר שפה",
+    "language_changed": "השפה שונתה בהצלחה"
+  },
+
+  "ai": {
+    "title": "עוזר AI",
+    "commands": {
+      "help": "עזרה בפקודות AI",
+      "summarize": "סיכום נושא",
+      "translate": "תרגום",
+      "ascii": "יצירת ASCII Art"
+    },
+    "prompts": {
+      "mention": "תייג @ai לעזרה",
+      "processing": "ה-AI חושב...",
+      "error": "אירעה שגיאת AI"
+    }
+  },
+
+  "keyboard": {
+    "navigate_down": "ירידה",
+    "navigate_up": "עלייה",
+    "select": "בחירה",
+    "back": "חזרה",
+    "scroll_up": "גלילה למעלה",
+    "scroll_down": "גלילה למטה",
+    "page_up": "עמוד למעלה",
+    "page_down": "עמוד למטה"
+  },
+
+  "messages": {
+    "welcome": "ברוכים הבאים לטרמפורום!",
+    "thread_created": "הנושא נוצר בהצלחה",
+    "thread_deleted": "הנושא נמחק",
+    "post_created": "התגובה פורסמה",
+    "post_edited": "התגובה נערכה",
+    "post_deleted": "התגובה נמחקה",
+    "bookmark_added": "הסימניה נוספה",
+    "bookmark_removed": "הסימניה הוסרה",
+    "coming_soon": "בקרוב!",
+    "feature_not_available": "התכונה עדיין לא זמינה"
+  },
+
+  "errors": {
+    "generic": "אירעה שגיאה",
+    "not_found": "לא נמצא",
+    "permission_denied": "אין הרשאה",
+    "network_error": "שגיאת רשת",
+    "database_error": "שגיאת מסד נתונים",
+    "invalid_input": "קלט לא תקין",
+    "required_field": "שדה חובה"
+  },
+
+  "time": {
+    "now": "עכשיו",
+    "seconds_ago": "לפני {count} שניות",
+    "minutes_ago": "לפני {count} דקות",
+    "hours_ago": "לפני {count} שעות",
+    "days_ago": "לפני {count} ימים",
+    "weeks_ago": "לפני {count} שבועות",
+    "months_ago": "לפני {count} חודשים",
+    "years_ago": "לפני {count} שנים"
+  }
+}

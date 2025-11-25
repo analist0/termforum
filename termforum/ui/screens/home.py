@@ -6,6 +6,7 @@ from textual.widgets import Static, ListView, ListItem, Label
 from textual.containers import Container, Vertical, Horizontal
 from ...storage import Database
 from ...models import User
+from ...i18n import get_translator
 
 
 class ThreadListItem(ListItem):
@@ -84,14 +85,15 @@ class HomeScreen(Screen):
 
     def compose(self) -> ComposeResult:
         """Compose the home screen"""
+        t = get_translator().t
 
         # Stats header
         stats = self.database.get_forum_stats()
         stats_text = (
-            f"📊 Users: {stats['users']} • "
-            f"📋 Threads: {stats['threads']} • "
-            f"💬 Posts: {stats['posts']} • "
-            f"📁 Categories: {stats['categories']}"
+            f"📊 {t('home.stats.users')}: {stats['users']} • "
+            f"📋 {t('home.stats.threads')}: {stats['threads']} • "
+            f"💬 {t('home.stats.posts')}: {stats['posts']} • "
+            f"📁 {t('home.stats.categories')}: {stats['categories']}"
         )
 
         yield Container(
@@ -106,7 +108,13 @@ class HomeScreen(Screen):
         )
 
         # Footer info
-        footer_text = "j/k: navigate • Enter: open • n: new thread • q: quit • ?: help"
+        footer_text = (
+            f"j/k: {t('keyboard.navigate_down')}/{t('keyboard.navigate_up')} • "
+            f"Enter: {t('common.select')} • "
+            f"n: {t('navigation.new_thread')} • "
+            f"q: {t('common.quit')} • "
+            f"?: {t('common.help')}"
+        )
         yield Container(
             Static(footer_text),
             id="footer-info"
@@ -118,6 +126,7 @@ class HomeScreen(Screen):
 
     def _populate_thread_list(self) -> None:
         """Populate the thread list with data"""
+        t = get_translator().t
         thread_list = self.query_one("#thread-list", ListView)
 
         # Get threads from database
@@ -125,7 +134,7 @@ class HomeScreen(Screen):
 
         if not threads:
             # Show empty state
-            thread_list.append(ListItem(Label("No threads yet. Press 'n' to create the first one!")))
+            thread_list.append(ListItem(Label(t('home.no_threads'))))
         else:
             for thread in threads:
                 thread_list.append(ThreadListItem(thread))
